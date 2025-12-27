@@ -7,7 +7,7 @@
 		android:icon="@drawable/ic_chaka"
 		>
 		<activity
-			android:name=".LibraryActivity"
+			android:name=".CustomUIActivity"
 			android:exported="true"
 			>
 			<intent-filter>

@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.timelegend.chaka.viewer.Tool;
+import com.litehalls.mupdf.viewer.Tool;
 
 /**
  * The MarkedView is the Markdown viewer.

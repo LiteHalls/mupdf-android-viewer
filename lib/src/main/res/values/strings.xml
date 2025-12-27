@@ -40,7 +40,14 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="help">Help</string>
-    <string name="readme">https://raw.githubusercontent.com/elementdavv/chaka/refs/heads/master/README.md</string>
-    <string name="api">https://api.github.com/repos/elementdavv/chaka/releases/latest</string>
+    <string name="more">More Options</string>
+    <string name="previous_page">Previous Page</string>
+    <string name="next_page">Next Page</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="vote_of_relevance">Vote of Relevance</string>
+    <string name="vote">Vote</string>
+    <string name="readme">https://raw.githubusercontent.com/LiteHalls/mupdf-android-viewer/refs/heads/master/README.md</string>
+    <string name="api">https://api.github.com/repos/LiteHalls/mupdf-android-viewer/releases/latest</string>
 
 </resources>

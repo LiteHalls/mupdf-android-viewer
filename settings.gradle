@@ -1,3 +1,12 @@
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 include ':jni'
 include ':lib'
 include ':app'

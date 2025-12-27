@@ -1,25 +1,19 @@
 apply plugin: 'com.android.application'
 
-group = 'net.timelegend.chaka'
-version = '1.24.9a.18'
-
 dependencies {
-	if (file('../lib/build.gradle').isFile())
-		api project(':lib')
-	else
-		api 'net.timelegend.chaka:viewer:1.24.9a.18'
+	api project(':lib')
 }
 
 android {
 	compileSdkVersion 34
 	buildToolsVersion '34.0.0'
 	defaultConfig {
-        applicationId 'net.timelegend.chaka.viewer.app'
-        namespace 'net.timelegend.chaka.viewer.app'
+        applicationId 'com.litehalls.mupdf.viewer.app'
+        namespace 'com.litehalls.mupdf.viewer.app'
 		minSdkVersion 21
 		targetSdkVersion 34
-		versionName '1.24.9a.18'
-		versionCode 164
+		versionName '1.00'
+		versionCode 1
 
         if (!project.hasProperty('noSplits')) {
 	        splits {

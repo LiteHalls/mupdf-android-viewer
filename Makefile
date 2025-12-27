@@ -13,9 +13,9 @@ i:
 ir:
 	./gradlew --warning-mode=all installRelease
 run: install
-	adb shell am start -n net.timelegend.chaka.viewer.app/.LibraryActivity
+	adb shell am start -n com.litehalls.mupdf.viewer.app/.LibraryActivity
 runRelease: installRelease
-	adb shell am start -n net.timelegend.chaka.viewer.app/.LibraryActivity
+	adb shell am start -n com.litehalls.mupdf.viewer.app/.LibraryActivity
 ui:
 	./gradlew --warning-mode=all uninstallDebug
 uninstallRelease:

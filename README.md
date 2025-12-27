@@ -1,13 +1,44 @@
 ## Chaka Book Reader
+
 An Android reader app committed to improving reading experience.
+
+**Based on MuPDF** - A lightweight PDF, XPS, and E-book viewer.  
+This project is a modified version with additional features including 16KB page size support and flexible custom UI for library integration.
 
 PDF, EPUB, MOBI, CBZ, FB2, XPS, TXT, HTML, OFFICE(DOCX,XLSX,PPTX) and ZIP/GZIP are supported.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/net.timelegend.chaka.viewer.app/)
+     height="80">](https://f-droid.org/packages/com.litehalls.mupdf.viewer.app/)
 
 Or download the latest APK from the [Releases Section](https://github.com/elementdavv/chaka/releases/latest).
+
+### Custom UI for Library Integration
+
+**NEW:** Chaka now supports a flexible custom UI mode designed for apps that want to integrate the document viewer as a library component. 
+
+**Features:**
+- ✅ Configurable toolbar buttons
+- ✅ Custom overflow menu with floating messages
+- ✅ Vote/rating system with callbacks
+- ✅ Custom share functionality
+- ✅ Advanced navigation and zoom controls
+- ✅ Customizable document title and type
+
+**[📖 See CUSTOM_UI.md for complete documentation](CUSTOM_UI.md)**
+
+Quick example:
+```java
+Intent intent = new Intent(this, DocumentActivity.class);
+intent.setAction(Intent.ACTION_VIEW);
+intent.setDataAndType(documentUri, mimeType);
+intent.putExtra(DocumentActivity.EXTRA_USE_CUSTOM_UI, true);
+intent.putExtra(Intent.EXTRA_TITLE, "My Document");
+// Configure buttons, voting, custom menu...
+startActivity(intent);
+```
+
+---
 
 ### Features
 - <img src="https://raw.githubusercontent.com/elementdavv/chaka/master/resources/flip_vertical.png"> Flip Vertical
@@ -119,11 +150,21 @@ Or download the latest APK from the [Releases Section](https://github.com/elemen
 - [MuPDF Android Viewer](https://github.com/ArtifexSoftware/mupdf-android-viewer) and developers
 - [MarkedView](https://github.com/mittsu333/MarkedView-for-Android) for help document rendering
 
+### License
+
+Chaka is licensed under the **GNU Affero General Public License v3.0** (AGPL-3.0).
+
+This is a modified version of the original MuPDF Android Viewer with enhancements including:
+- 16KB page size support
+- Custom UI mode for library integration
+- Vote/rating system
+- Enhanced navigation controls
+
+See [COPYING](COPYING) for the full license text.
+
 ### Contacts
-- GitHub repo: [https://github.com/elementdavv/chaka](https://github.com/elementdavv/chaka)
-- Email: elementdavv@hotmail.com
-- Telegram: [@elementdavv](https://t.me/elementdavv)
-- X(Twitter): [@elementdavv](https://x.com/elementdavv)
+- GitHub repo: [https://github.com/LiteHalls/mupdf-android-viewer](https://github.com/LiteHalls/mupdf-android-viewer)
+- Original Chaka: [https://github.com/elementdavv/chaka](https://github.com/elementdavv/chaka)
 
 ### Support
-If you love Chaka, consider supporting or hiring the maintainer [@elementdavv](https://x.com/elementdavv) [![donate](https://raw.githubusercontent.com/elementdavv/chaka/master/resources/paypal-logo.png)](https://paypal.me/timelegend)
+For issues, feature requests, or contributions, please use the [GitHub Issues](https://github.com/LiteHalls/mupdf-android-viewer/issues) page.

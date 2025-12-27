@@ -27,3 +27,5 @@ app/gradle.properties
 todo
 backup
 fdroiddata
+.idea/
+app/release/

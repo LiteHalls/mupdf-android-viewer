@@ -1,9 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'net.timelegend.chaka'
-version = '1.24.9a.18'
-
 dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -12,25 +9,20 @@ dependencies {
 	if (file('../jni/build.gradle').isFile())
 		api project(':jni')
 	else
-	    api 'net.timelegend.mupdf:fitz:1.24.9.6'
+	    api 'com.artifex.mupdf:fitz:1.27.0'
 }
 
 android {
 	compileSdkVersion 34
 	buildToolsVersion '34.0.0'
 	defaultConfig {
-        namespace 'net.timelegend.chaka.viewer'
+        namespace 'com.litehalls.mupdf.viewer'
 		minSdkVersion 21
 		targetSdkVersion 34
-		versionName '1.24.9a.18'
-		versionCode 164
+		versionName '1.00'
+		versionCode 1
 		buildConfigField "String", "VERSION_NAME", "\"${defaultConfig.versionName}\""
 		buildConfigField "long", "VERSION_CODE", "${defaultConfig.versionCode}"
-	}
-	publishing {
-		singleVariant("release") {
-			withSourcesJar()
-		}
 	}
 	buildFeatures {
 		buildConfig true
@@ -39,55 +31,25 @@ android {
 		sourceCompatibility JavaVersion.VERSION_1_8
 		targetCompatibility JavaVersion.VERSION_1_8
 	}
-}
-
-project.afterEvaluate {
-	publishing {
-		publications {
-			release(MavenPublication) {
-				artifactId 'viewer'
-				artifact(bundleReleaseAar)
-
-				pom {
-					name = 'viewer'
-					url = 'https://github.com/elementdavv/chaka'
-					licenses {
-						license {
-							name = 'GNU Affero General Public License'
-							url = 'https://www.gnu.org/licenses/agpl-3.0.html'
-						}
-					}
-				}
-				pom.withXml {
-					final dependenciesNode = asNode().appendNode('dependencies')
-					configurations.implementation.allDependencies.each {
-						def dependencyNode = dependenciesNode.appendNode('dependency')
-						dependencyNode.appendNode('groupId', it.group)
-						dependencyNode.appendNode('artifactId', it.name)
-						dependencyNode.appendNode('version', it.version)
-					}
-				}
-			}
-		}
-		repositories {
-            maven {
-				name 'Local'
-				if (project.hasProperty('MAVEN_REPO')) {
-					url = MAVEN_REPO
-				} else {
-					url = "file://${System.properties['user.home']}/MAVEN"
-				}
-            }
-		}
-	}
-}
-
-tasks.register("printCompileClasspath") {
-    doLast {
-        println("---START---")
-        configurations.getByName("debugCompileClasspath").files.forEach { file ->
-            println(file.absolutePath)
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
         }
-        println("---END---")
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.LiteHalls'
+                artifactId = 'mupdf-android-viewer'
+                version = '1.00'
+            }
+        }
     }
 }
