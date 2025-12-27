@@ -2,5 +2,8 @@ jdk:
   - openjdk17
 before_install:
   - ./gradlew clean
+  # Remove problematic test files that cause XML parsing timeouts
+  - rm -rf jni/libmupdf/thirdparty/harfbuzz/docs/*.xml || true
+  - rm -rf jni/libmupdf/thirdparty/extract/test/*.xml || true
 install:
-  - ./gradlew assembleRelease
+  - ./gradlew :lib:assembleRelease :lib:publishToMavenLocal
