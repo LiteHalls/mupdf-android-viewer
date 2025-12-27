@@ -19,8 +19,8 @@ android {
         namespace 'com.litehalls.mupdf.viewer'
 		minSdkVersion 21
 		targetSdkVersion 34
-		versionName '1.00'
-		versionCode 1
+		versionName '2.0.1'
+		versionCode 2
 		buildConfigField "String", "VERSION_NAME", "\"${defaultConfig.versionName}\""
 		buildConfigField "long", "VERSION_CODE", "${defaultConfig.versionCode}"
 	}
@@ -48,7 +48,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.LiteHalls'
                 artifactId = 'mupdf-android-viewer'
-                version = '1.00'
+                version = '2.0.1'
             }
         }
     }
